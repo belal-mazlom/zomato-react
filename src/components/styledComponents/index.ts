@@ -71,6 +71,7 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  height: 100%;
 }
 body {
   box-sizing: border-box;
@@ -89,6 +90,13 @@ body {
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  > div {
+      height: 100%;
+    > div {
+      height: 100%;
+    }
+  }
 }
 `;
 
@@ -125,4 +133,19 @@ export const LogoTitle = styled.span`
   color: ${props => props.theme.txtColor};
   line-height: 3.1rem;
   margin: 0 1rem;
+`;
+
+export const Main = styled.main`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+`;
+
+export const Side = styled.div`
+  flex: 1;
+  background-color: ${props => props.theme.secondaryBgColor};
+`;
+export const Content = styled.div`
+  flex: 3;
 `;

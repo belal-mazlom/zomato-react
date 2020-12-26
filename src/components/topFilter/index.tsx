@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import RangeFilter from '../rangeFilter';
 import CheckBoxList, { CheckboxItemProps } from './CheckBoxList';
 import { Container, LeftSide, ToggleBtn } from './style';

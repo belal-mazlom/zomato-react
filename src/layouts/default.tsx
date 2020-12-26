@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GlobalStyle } from '@styledComponents/index';
+import { GlobalStyle, Main } from '@styledComponents/index';
 import { defaultTheme, darkTheme, ThemeContext } from '@styledComponents/theme';
 
 import Header from './header';
@@ -36,9 +36,7 @@ const DefaultLayout = ({ children }: any) => {
         <>
           <TopFilter hidden={topHidden} setHidden={setTopHidden}/>
           <Header onTop={topHidden} siteTitle={data.site.siteMetadata?.title || `Title`} />
-          <div>
-            <main>{children}</main>
-          </div>
+          <Main>{children}</Main>
         </>
       </ThemeProvider>
     </ThemeContext.Provider>
