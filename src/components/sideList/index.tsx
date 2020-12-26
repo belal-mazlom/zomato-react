@@ -24,6 +24,23 @@ const data: RestaurantListItem[] = [
     id: 4,
     name: 'Restaurant 4',
   },
+  {
+    id: 1,
+    name: 'Restaurant 1',
+  },
+  {
+    id: 2,
+    name: 'Restaurant 2',
+  },
+  {
+    id: 3,
+    name: 'Restaurant 3',
+  },
+  {
+    id: 4,
+    name: 'Restaurant 4',
+  },
+  
 ];
 
 export default function SideList() {

@@ -144,7 +144,7 @@ export const Main = styled.main`
 
 export const Side = styled.div`
   flex: 1;
-  background-color: ${props => props.theme.secondaryBgColor};
+  background-color: ${props => props.theme.thirdBgColor};
 `;
 export const Content = styled.div`
   flex: 3;

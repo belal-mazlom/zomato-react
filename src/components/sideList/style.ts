@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   box-sizing: border-box;
   padding: 0 1rem 0 0rem;
+  overflow: hidden;
+  height: calc(100% - 6.4rem);
 `;
 
 export const Title= styled.h2`
@@ -17,6 +19,7 @@ export const Title= styled.h2`
 
 export const List = styled.div`
   overflow-y: scroll;
+  height: 100%;
 `;
 
 export const Label = styled.span`

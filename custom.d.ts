@@ -5,6 +5,7 @@ declare module 'styled-components' {
     primaryColor: string,
     secondaryColor: string,
     txtColor: string,
+    darkColor: string,
     grayColor: string,
     bgColor: string,
     secondaryBgColor: string,
@@ -12,5 +13,6 @@ declare module 'styled-components' {
     borderColor: string,
     white: string,
     black: string,
+    red: string,
   }
 }
