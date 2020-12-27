@@ -10,6 +10,7 @@ const aliasImport = {
       '@images': 'src/assets/images',
       '@styledComponents': 'src/components/styledComponents',
       '@styles': 'src/assets/styles',
+      '@config': 'src/config',
     },
     extensions: [],
   },

@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Belal Mazlom",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",
@@ -17,11 +18,15 @@
     "rc-slider": "^9.7.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-redux": "^7.2.2",
+    "redux-axios-middleware": "^4.0.1"
   },
   "devDependencies": {
     "@types/react-helmet": "^6.1.0",
+    "@types/react-redux": "^7.1.14",
     "@types/styled-components": "^5.1.7",
+    "@types/webpack-env": "^1.16.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-remove-console": "^0.0.2",

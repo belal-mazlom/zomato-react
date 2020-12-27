@@ -3,5 +3,5 @@
  *
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
-
-// You can delete this file if you're not using it
+import wrapWithProvider from './src/config/wrap-app';
+export const wrapRootElement = wrapWithProvider;
