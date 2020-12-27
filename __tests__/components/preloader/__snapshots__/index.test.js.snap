@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Preloader/> renders correctly 1`] = `
+<div
+  className="sc-bdfBwQ dXgGps"
+>
+  <div
+    className="sc-gsTCUz hcrgbO"
+  >
+    <img
+      src="test-file-stub"
+    />
+    <span>
+      Loading ...
+    </span>
+  </div>
+</div>
+`;

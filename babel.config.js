@@ -14,6 +14,19 @@ const config = api => {
     plugins: [
       `@babel/plugin-proposal-nullish-coalescing-operator`,
       `@babel/plugin-proposal-optional-chaining`,
+      ['module-resolver', {
+        'alias': {
+          '@assets': './src/assets',
+          '@components': './src/components',
+          '@layouts': './src/layouts',
+          '@pages': './src/pages',
+          '@utils': './src/utils',
+          '@images': './src/assets/images',
+          '@styledComponents': './src/components/styledComponents',
+          '@styles': './src/assets/styles',
+          '@config': './src/config',
+        },
+      }]
     ],
     /**
      * @see https://github.com/gatsbyjs/gatsby/tree/master/packages/babel-preset-gatsby

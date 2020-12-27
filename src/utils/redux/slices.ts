@@ -1,6 +1,6 @@
 import { CheckboxItem, Restaurant, RootState } from '@utils/defines';
 
-function mapRestaurant(restaurant: any) {
+export function mapRestaurant(restaurant: any) {
   return {
     id: restaurant.id,
     name: restaurant.name,
@@ -17,7 +17,7 @@ function mapRestaurant(restaurant: any) {
   } as Restaurant;
 }
 
-function filterRestaurants(
+export function filterRestaurants(
   restaurants: Restaurant[],
   rating: number[],
   cost: number[]
