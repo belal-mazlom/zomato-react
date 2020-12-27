@@ -32,7 +32,7 @@ export const RangContainer = styled.div`
     margin-top: 0.4rem;
   }
   .rc-slider-tooltip-inner {
-    min-width: 3rem;
+    min-width: 4rem;
   }
 `;
 

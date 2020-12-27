@@ -5,7 +5,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  min-width: 10rem;
+  width: 10rem;
+  > svg {
+    flex-basis: 1.8rem;
+    flex: 1;
+  }
 `;
 
 export const Check = styled.div.attrs({
@@ -19,6 +23,7 @@ export const Label = styled.span`
   font-size: 1.2rem;
   font-weight: 400;
   margin: 0 1rem;
-  line-height: 1rem;
+  line-height: 1.4rem;
   user-select: none;
+  width: 6rem;
 `;

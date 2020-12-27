@@ -8,6 +8,6 @@ export default function ToggleTheme () {
   const { toggleTheme } = useContext(ThemeContext);
 
   return (
-    <ButtonContainer type="button" onClick={toggleTheme}>{theme === defaultTheme ? 'Dark mode' : 'Light mode'}</ButtonContainer>
+    <ButtonContainer onClick={toggleTheme}>{theme === defaultTheme ? 'Dark mode' : 'Light mode'}</ButtonContainer>
   );
 }

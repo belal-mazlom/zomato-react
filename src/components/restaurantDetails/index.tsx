@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { RestaurantListItem } from '@app/utils/defines';
+import React from 'react';
+import { Restaurant, RootState } from '@utils/defines';
+import { useSelector } from 'react-redux';
 import {
   Container,
   Details,
+  EmptyBox,
   FeatureItem,
   FeatureList,
   Preview,
@@ -10,33 +12,49 @@ import {
   SubTitle,
   Title,
 } from './style';
-import PropertyItem, { LabelColor } from './propertyItem';
+import PropertyItem from './propertyItem';
+import TimeItem from './timeItem';
 
-export default function SideList() {
+function getPriceRange(priceRange: number) {
+  let result = '';
+  for (let i = 0; i < priceRange; i++) {
+    result += '$';
+  }
+  return result;
+}
+
+export default function RestaurantDetails() {
+  const restaurant: Restaurant | null = useSelector(
+    (state: RootState) => state.restaurantDetails
+  );
+
+  if (!restaurant) {
+    return (<EmptyBox>Select a restaurant to see the details!</EmptyBox>);
+  }
+
   return (
     <Container>
       <Preview>
-        <PreviewImage src={require('@images/app-icon.png')} />
+        <PreviewImage src={restaurant.imageUrl} />
       </Preview>
       <Details>
-        <Title>Restaurant Name</Title>
-        <SubTitle>Address</SubTitle>
+        <Title>{restaurant?.name}</Title>
+        <SubTitle>{restaurant.address}</SubTitle>
         <FeatureList>
-          <FeatureItem available={true}>Food</FeatureItem>
-          <FeatureItem available={false}>Drink</FeatureItem>
+          <FeatureItem available={restaurant.booking}>Booking</FeatureItem>
+          <FeatureItem available={restaurant.delivery}>
+            Delivery Available
+          </FeatureItem>
         </FeatureList>
         <FeatureList marginTop={3}>
+          <PropertyItem title={'cuisines'} value={restaurant.cuisines} />
+          <PropertyItem title={'phone number'} value={restaurant.phoneNumber} />
           <PropertyItem
-            title={'cuisines'}
-            value={'Coffee and Tea, Cafe Food'}
+            title={'price range'}
+            value={getPriceRange(restaurant.priceRange)}
           />
-          <PropertyItem title={'phone number'} value={'0425 729 534'} />
-          <PropertyItem
-            title={'opening hours'}
-            value={'Today 6:30 AM to 4:00 PM'}
-            label={'open now'}
-            labelColor={LabelColor.success}
-          />
+          <PropertyItem title={'Rating'} value={restaurant.rating.toString()} />
+          <TimeItem title={'opening hours'} value={restaurant.timings} />
         </FeatureList>
       </Details>
     </Container>

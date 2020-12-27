@@ -7,6 +7,13 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
+export const EmptyBox = styled.div`
+  text-align: center;
+  margin: 6rem;
+  font-size: 2.8rem;
+  color: ${props => props.theme.txtColor};
+`;
+
 export const Preview = styled.div`
   width: 30rem;
   height: 30rem;
@@ -30,7 +37,7 @@ export const Title = styled.h1`
 export const SubTitle = styled.h3`
   font-size: 1.4rem;
   font-weight: 400;
-  color: ${props => props.theme.grayColor};
+  color: ${props => props.theme.darkGrayColor};
   margin: 0;
 `;
 
@@ -68,7 +75,12 @@ export const PropertyValue = styled.div`
   color: ${props => props.theme.txtColor};
 `;
 
+export const TimeValues = styled.div`
+  flex: 3;
+`;
+
 export const Label = styled.div<{ backColor: string}>`
+  align-self: flex-end;
   border-radius: 0.8rem;
   background-color: ${props => props.backColor};
   display: inline-block;
@@ -78,4 +90,5 @@ export const Label = styled.div<{ backColor: string}>`
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 700;
+  width: 8rem;
 `;

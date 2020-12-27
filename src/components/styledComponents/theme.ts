@@ -11,6 +11,7 @@ export const defaultTheme: DefaultTheme = {
   txtColor: '#4e5456',
   grayColor: '#b2b6b7',
   darkColor: '#333333',
+  darkGrayColor: '#777777',
   bgColor: '#F1F1F1',
   secondaryBgColor: '#E5E5E5',
   thirdBgColor: '#FFFFFF',
@@ -30,4 +31,5 @@ export const darkTheme: DefaultTheme = {
   sideBgColor: '#222222',
   grayColor: '#EEEEEE',
   darkColor: '#F1F1F1',
+  darkGrayColor: '#E2E2E2',
 };

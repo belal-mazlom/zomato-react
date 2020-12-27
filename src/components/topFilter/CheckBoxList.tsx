@@ -1,17 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import CheckBox from '@components/checkbox';
+import { CheckboxItem } from '@utils/defines';
 import { ListOptions, ListOptionsContainer, TopicTitle } from './style';
-
-export interface CheckboxItemProps {
-  id: number;
-  label: string;
-  checked: boolean;
-}
 
 interface Props {
   title: string;
-  items: CheckboxItemProps[];
-  onChange: (item: CheckboxItemProps) => void;
+  items: CheckboxItem[];
+  onChange: (item: CheckboxItem) => void;
   widthFactory?: number;
 }
 
@@ -20,11 +15,11 @@ export default function CheckBoxList({ title, items, onChange, widthFactory }: P
     <ListOptionsContainer factory={widthFactory}>
       <TopicTitle>{title}</TopicTitle>
       <ListOptions>
-        {items.map((item: CheckboxItemProps) => (
+        {items.map((item: CheckboxItem) => (
           <CheckBox
             key={item.id}
             checked={item.checked}
-            label={item.label}
+            label={item.name}
             onClick={() => onChange(item)}
           />
         ))}

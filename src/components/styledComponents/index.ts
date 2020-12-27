@@ -1,8 +1,6 @@
 import { Link } from 'gatsby';
 import styled, { createGlobalStyle } from 'styled-components';
 
-//OpenSans-Regular.ttf
-
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Open Sans';

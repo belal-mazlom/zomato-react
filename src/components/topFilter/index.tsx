@@ -1,41 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@utils/defines';
 import RangeFilter from '../rangeFilter';
-import CheckBoxList, { CheckboxItemProps } from './CheckBoxList';
+import CheckBoxList from './CheckBoxList';
 import { Container, Content, LeftSide, ToggleBtn } from './style';
+import { CATEGORIES, COST, CUISINES, RATING } from '@utils/redux/types';
 
 interface Props {
   hidden: boolean;
   setHidden: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function toggleSelect(
-  setState: React.Dispatch<React.SetStateAction<CheckboxItemProps[]>>,
-  item: CheckboxItemProps
-) {
-  setState((items: CheckboxItemProps[]) => {
-    const itemIndex = items.findIndex(
-      (_item: CheckboxItemProps) => _item.id === item.id
-    );
-    item.checked = !item.checked;
-    items[itemIndex] = item;
-    return [...items];
-  });
-}
-
 export default function TopFilter({ hidden, setHidden }: Props) {
-  const [categories, setCategories] = useState<CheckboxItemProps[]>([
-    { id: 1, label: 'Food 1', checked: false },
-    { id: 2, label: 'Food 2', checked: false },
-    { id: 3, label: 'Food 3', checked: false },
-    { id: 4, label: 'Food 4', checked: false },
-  ]);
-
-  const [cuisines, setCuisines] = useState<CheckboxItemProps[]>([
-    { id: 1, label: 'cuisine 1', checked: false },
-    { id: 2, label: 'cuisine 2', checked: false },
-    { id: 3, label: 'cuisine 3', checked: false },
-    { id: 4, label: 'cuisine 4', checked: false },
-  ]);
+  const dispatch = useDispatch();
+  const categories = useSelector((state: RootState) => state.categories);
+  const cuisines = useSelector((state: RootState) => state.cuisines);
+  const maxCost = useSelector((state: RootState) => state.maxCost);
+  const marks: any = { 0: '$'};
+  marks[maxCost] = '$$$$$';
 
   return (
     <Container className={hidden ? 'hide' : ''}>
@@ -44,12 +26,12 @@ export default function TopFilter({ hidden, setHidden }: Props) {
           <CheckBoxList
             title={'category'}
             items={categories}
-            onChange={item => toggleSelect(setCategories, item)}
+            onChange={item => dispatch({ type: CATEGORIES.toggle, payload: { item } })}
           />
           <CheckBoxList
             title={'cuisine'}
             items={cuisines}
-            onChange={item => toggleSelect(setCuisines, item)}
+            onChange={item => dispatch({ type: CUISINES.toggle, payload: { item } })}
             widthFactory={2}
           />
 
@@ -62,18 +44,18 @@ export default function TopFilter({ hidden, setHidden }: Props) {
               defaultValue={[0, 5]}
               tipFormatter={(value: string) => value}
               marks={{ 0: 0, 5: 5 }}
-              onChange={() => {}}
+              onChange={rating => dispatch({ type: RATING.set, payload: { rating } })}
             />
-            <RangeFilter
+            {maxCost > 0 && <RangeFilter
               title={'Cost'}
               min={0}
-              max={80}
-              step={10}
-              defaultValue={[0, 80]}
+              max={maxCost}
+              step={1}
+              defaultValue={[0, maxCost]}
               tipFormatter={(value: string) => `${value} $`}
-              marks={{ 0: '$', 80: '$$$$' }}
-              onChange={() => {}}
-            />
+              marks={marks}
+              onChange={cost => dispatch({ type: COST.set, payload: { cost } })}
+            />}
           </LeftSide>
         </div>
       </Content>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   box-sizing: border-box;
@@ -7,7 +7,7 @@ export const Container = styled.div`
   height: calc(100% - 6.4rem);
 `;
 
-export const Title= styled.h2`
+export const Title = styled.h2`
   text-transform: uppercase;
   color: ${props => props.theme.txtColor};
   font-size: 0.9rem;
@@ -27,11 +27,19 @@ export const Label = styled.span`
   color: ${props => props.theme.txtColor};
 `;
 
-export const ListItem = styled.div`
+export const ListItem = styled.div<{ isSelected: boolean }>`
   display: flex;
   padding: 1rem 0 1rem 4rem;
   border-bottom: 0.1rem solid ${props => props.theme.grayColor};
   cursor: pointer;
+  ${props =>
+    props.isSelected &&
+    css`
+      background-color: ${props.theme.primaryColor};
+      ${Label} {
+        color: ${props.theme.white};
+      }
+    `}
   &:hover {
     background-color: ${props => props.theme.primaryColor};
     ${Label} {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import Slider, { SliderTooltip } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { Container, RangContainer, Title, Handle } from './style';
+import { Container, RangContainer, Title } from './style';
 import { ThemeContext } from 'styled-components';
 
 interface Props {
@@ -19,7 +19,7 @@ interface Props {
       }
   >;
   tipFormatter: any;
-  onChange: any;
+  onChange: (value: number[]) => void;
 }
 
 const { createSliderWithTooltip } = Slider;
@@ -52,9 +52,7 @@ export default function ({
           railStyle={{ height: 10 }}
           dotStyle={{ display: 'none'}}
           handleStyle={[{ width: 20, height: 20, borderColor: theme.primaryColor }]}
-          onChange={(values: number[]) => {
-            console.log ('values', values);
-          }}
+          onChange={onChange}
         />
       </RangContainer>
     </Container>

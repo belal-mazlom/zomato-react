@@ -82,7 +82,7 @@ export const ListOptions = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   overflow-y: auto;
-  max-height: 10rem;
+  max-height: 11.4rem;
   margin-right: 3rem;
 `;
 
