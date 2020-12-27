@@ -7,6 +7,7 @@ import { defaultTheme, darkTheme, ThemeContext } from '@styledComponents/theme';
 import Header from './header';
 import { ThemeProvider } from 'styled-components';
 import TopFilter from '@components/topFilter';
+import Preloader from '@components/preloader';
 
 const DefaultLayout = ({ children }: any) => {
   const [theme, setTheme] = useState(defaultTheme);
@@ -37,6 +38,7 @@ const DefaultLayout = ({ children }: any) => {
           <TopFilter hidden={topHidden} setHidden={setTopHidden}/>
           <Header onTop={topHidden} siteTitle={data.site.siteMetadata?.title || `Title`} />
           <Main>{children}</Main>
+          <Preloader show={false}/>
         </>
       </ThemeProvider>
     </ThemeContext.Provider>

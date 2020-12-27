@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  min-width: 10rem;
 `;
 
 export const Check = styled.div.attrs({

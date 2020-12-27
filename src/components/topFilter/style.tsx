@@ -18,6 +18,8 @@ export const ToggleBtn = styled.button.attrs({
   justify-content: center;
   transition: box-shadow 0.2s linear;
   background-color: ${props => props.theme.thirdBgColor};
+  transform: translate(0rem, 0rem);
+  transition: all 0.2s linear;
   ::after {
     content: ' ';
     background: url(${require('@images/up-arrow.svg')}) no-repeat center;
@@ -28,22 +30,20 @@ export const ToggleBtn = styled.button.attrs({
     transform: rotate(0deg);
   }
   &:hover {
-    box-shadow: 0 0 1rem ${props => props.theme.secondaryBgColor};
+    box-shadow: 0 0 0.4rem ${props => props.theme.txtColor};
   }
 `;
 
 export const Container = styled.div`
   padding: 3rem 10rem 1rem;
   background-color: ${props => props.theme.thirdBgColor};
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
   position: relative;
   transition: all 0.4s ease-in-out;
   transform: translate(0rem, 0rem);
   &.hide {
-    transform: translate(0rem, -17.2rem);
+    transform: translate(0rem, -18.6rem);
     ${ToggleBtn} {
+      transform: translate(0rem, 0.8rem);
       ::after {
         transform: rotate(180deg);
       }
@@ -51,9 +51,20 @@ export const Container = styled.div`
   }
 `;
 
-export const ListOptionsContainer = styled.div`
+export const Content = styled.div`
+  max-width: 100%;
+  > div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+`;
+
+export const ListOptionsContainer = styled.div<{ factory?: number }>`
   max-height: 30rem;
-  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  flex: ${props => props.factory || 1};
 `;
 
 export const TopicTitle = styled.h2`
@@ -66,11 +77,15 @@ export const TopicTitle = styled.h2`
 `;
 
 export const ListOptions = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: auto;
   max-height: 10rem;
+  margin-right: 3rem;
 `;
 
-export const LeftSide = styled.div``;
+export const LeftSide = styled.div`
+  flex: 1;
+`;

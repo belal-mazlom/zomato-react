@@ -12,11 +12,12 @@ interface Props {
   title: string;
   items: CheckboxItemProps[];
   onChange: (item: CheckboxItemProps) => void;
+  widthFactory?: number;
 }
 
-export default function CheckBoxList({ title, items, onChange }: Props) {
+export default function CheckBoxList({ title, items, onChange, widthFactory }: Props) {
   return (
-    <ListOptionsContainer>
+    <ListOptionsContainer factory={widthFactory}>
       <TopicTitle>{title}</TopicTitle>
       <ListOptions>
         {items.map((item: CheckboxItemProps) => (

@@ -3,7 +3,7 @@ import { Handle as HandleSlider } from 'rc-slider';
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   margin-bottom: 1.6rem;
 `;
@@ -16,7 +16,7 @@ export const Title = styled.h2`
   flex-grow: 1;
   width: 100%;
   text-align: left;
-  padding-left: 2rem;
+  padding-left: 1rem;
   margin: 0 0 0.4rem 0;
 `;
 

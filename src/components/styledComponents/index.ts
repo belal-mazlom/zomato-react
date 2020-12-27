@@ -103,14 +103,15 @@ body {
 export const TopHeader = styled.header`
   align-items: center;
   background-color: ${props => props.theme.secondaryBgColor};
+  border-bottom: 0.2rem solid ${props => props.theme.grayColor};
   display: flex;
   justify-content: space-between;
   padding: 0rem 1rem;
-  height: 3.4rem;
+  height: 3.2rem;
   margin-top: 0rem;
   transition: margin-top 0.4s ease-in-out;
   &.on-top {
-    margin-top: -17.2rem;
+    margin-top: -18.6rem;
   }
 `;
 
@@ -144,7 +145,7 @@ export const Main = styled.main`
 
 export const Side = styled.div`
   flex: 1;
-  background-color: ${props => props.theme.thirdBgColor};
+  background-color: ${props => props.theme.sideBgColor};
 `;
 export const Content = styled.div`
   flex: 3;

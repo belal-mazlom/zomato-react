@@ -14,6 +14,7 @@ export const defaultTheme: DefaultTheme = {
   bgColor: '#F1F1F1',
   secondaryBgColor: '#E5E5E5',
   thirdBgColor: '#FFFFFF',
+  sideBgColor: '#E5E5E5',
   borderColor: '#999999',
   white: '#FFFFFF',
   black: '#333333',
@@ -26,6 +27,7 @@ export const darkTheme: DefaultTheme = {
   bgColor: '#2b2b2b',
   secondaryBgColor: '#50BEBF',
   thirdBgColor: '#222222',
+  sideBgColor: '#222222',
   grayColor: '#EEEEEE',
   darkColor: '#F1F1F1',
 };

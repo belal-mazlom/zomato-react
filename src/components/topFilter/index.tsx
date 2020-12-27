@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import RangeFilter from '../rangeFilter';
 import CheckBoxList, { CheckboxItemProps } from './CheckBoxList';
-import { Container, LeftSide, ToggleBtn } from './style';
+import { Container, Content, LeftSide, ToggleBtn } from './style';
 
 interface Props {
   hidden: boolean;
@@ -39,40 +39,45 @@ export default function TopFilter({ hidden, setHidden }: Props) {
 
   return (
     <Container className={hidden ? 'hide' : ''}>
-      <CheckBoxList
-        title={'category'}
-        items={categories}
-        onChange={item => toggleSelect(setCategories, item)}
-      />
-      <CheckBoxList
-        title={'cuisine'}
-        items={cuisines}
-        onChange={item => toggleSelect(setCuisines, item)}
-      />
+      <Content>
+        <div>
+          <CheckBoxList
+            title={'category'}
+            items={categories}
+            onChange={item => toggleSelect(setCategories, item)}
+          />
+          <CheckBoxList
+            title={'cuisine'}
+            items={cuisines}
+            onChange={item => toggleSelect(setCuisines, item)}
+            widthFactory={2}
+          />
 
-      <LeftSide>
-        <RangeFilter
-          title={'Rating'}
-          min={0}
-          max={5}
-          step={1}
-          defaultValue={[0, 5]}
-          tipFormatter={(value: string) => value}
-          marks={{ 0: 0, 5: 5 }}
-          onChange={() => {}}
-        />
-        <RangeFilter
-          title={'Cost'}
-          min={0}
-          max={80}
-          step={10}
-          defaultValue={[0, 80]}
-          tipFormatter={(value: string) => `${value} $`}
-          marks={{ 0: '$', 80: '$$$$' }}
-          onChange={() => {}}
-        />
-      </LeftSide>
-      <ToggleBtn onClick={() => setHidden(state => !state)}/>
+          <LeftSide>
+            <RangeFilter
+              title={'Rating'}
+              min={0}
+              max={5}
+              step={1}
+              defaultValue={[0, 5]}
+              tipFormatter={(value: string) => value}
+              marks={{ 0: 0, 5: 5 }}
+              onChange={() => {}}
+            />
+            <RangeFilter
+              title={'Cost'}
+              min={0}
+              max={80}
+              step={10}
+              defaultValue={[0, 80]}
+              tipFormatter={(value: string) => `${value} $`}
+              marks={{ 0: '$', 80: '$$$$' }}
+              onChange={() => {}}
+            />
+          </LeftSide>
+        </div>
+      </Content>
+      <ToggleBtn onClick={() => setHidden(state => !state)} />
     </Container>
   );
 }
