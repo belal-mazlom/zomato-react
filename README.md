@@ -2,6 +2,9 @@
     Zomato React Sample
 </h1>
 
+## Demo
+https://zomato-react.vercel.app/
+
 ## About this sample
 
 Sample react application to show restaurants and filter them using Zomato APIs
