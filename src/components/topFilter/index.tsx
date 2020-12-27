@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@utils/defines';
 import RangeFilter from '../rangeFilter';
-import CheckBoxList from './CheckBoxList';
+import CheckBoxList from './checkBoxList';
 import { Container, Content, LeftSide, ToggleBtn } from './style';
 import { CATEGORIES, COST, CUISINES, RATING } from '@utils/redux/types';
 

@@ -11,14 +11,19 @@ const client = axios.create({
   responseType: 'json',
   headers: {
     'user-key': settings.API_KEY,
-    'Accept': 'application/json',
-  }
+    Accept: 'application/json',
+  },
 });
+
+const midlewares = [axiosMiddleware(client), UpdateRestaurants];
+
+if (process.env.NODE_ENV === 'development') {
+  midlewares.push(logger);
+}
 
 const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat([logger, axiosMiddleware(client), UpdateRestaurants]),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(midlewares),
 });
 
 if (process.env.NODE_ENV === 'development' && module.hot) {
